@@ -67,3 +67,30 @@ if standart_sapma_tip1 >= standart_sapma_tip2:
     print("**Tip 1 borunun ısıya olan dayanıklılığı Tip 2 boruya göre daha değişkendir yani yayılımı fazladır")
 else:
     print("**Tip 2 borunun ısıya olan dayanıklılığı Tip 1 boruya göre daha değişkendir yani yayılımı fazladır")
+
+
+#1-b
+
+tip1_min = np.min(tip1)
+tip1_max = np.max(tip1)
+tip1_medyan = np.median(tip1)
+
+tip2_min = np.min(tip2)
+tip2_max = np.max(tip2)
+tip2_medyan = np.median(tip2)
+
+plt.boxplot(tip1_ornek)
+plt.show()
+
+plt.boxplot(tip2_ornek)
+plt.show()
+
+#1-c
+
+x = pd.Series(tip1_ornek)
+fig, ax = stemgraphic.stem_graphic(x)
+plt.show()
+
+y = pd.Series(tip2_ornek)
+fig, ax = stemgraphic.stem_graphic(y)
+plt.show()
