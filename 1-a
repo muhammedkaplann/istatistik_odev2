@@ -1,0 +1,69 @@
+import random
+
+tip1 = [182, 193, 184, 201, 212, 209, 213, 199, 207, 234,
+        202, 219, 225, 228, 209, 187, 203, 228, 205, 236,
+        225, 194, 214, 209, 218, 219, 213, 198, 229, 198,
+        202, 219, 227, 201, 219, 188, 203, 188, 205, 239,
+        223, 209, 194, 216, 195, 208, 189, 204, 197, 208]
+
+tip2 = [192, 225, 251, 203, 173, 207, 176, 216, 259, 219,
+        151, 201, 191, 259, 205, 198, 223, 215, 185, 193,
+        212, 241, 219, 203, 153, 227, 214, 155, 218, 194,
+        213, 201, 182, 231, 206, 192, 206, 258, 208, 186,
+        221, 213, 257, 204, 184, 161, 209, 219, 157, 197]
+
+#20 elemanlı örneklem
+tip1_kopya=tip1[:]
+tip1_ornek=[]
+for i in range(0,19):
+    a = random.randint(0, 49)
+    b = tip1_kopya[a]
+    tip1_ornek.append(b) and tip1_kopya.remove(b)
+    if len(tip1_ornek)==20:
+        print(tip1_ornek)
+        break
+
+#ortalama ve standart sapma hesaplama
+toplam_tip1=0
+for x in tip1_ornek:
+    toplam_tip1+=x
+ortalama_tip1=toplam_tip1/len(tip1_ornek)
+print("Tip 1 borunun 20 elemanlı örnekleminin ortalamısı:",ortalama_tip1)
+standart_sapma_tip1=0
+for c in tip1_ornek:
+    standart_sapma_tip1+=(c-ortalama_tip1)**2
+standart_sapma_tip1=(standart_sapma_tip1/(len(tip1_ornek)-1))**0.5
+print("Tip 1 borunun 20 elemanlı örnekleminin standart sapması:",standart_sapma_tip1)
+
+#20 elemanlı örneklem
+tip2_kopya=tip2[:]
+tip2_ornek=[]
+for i in range(0,19):
+    a = random.randint(0, 49)
+    b = tip2_kopya[a]
+    tip2_ornek.append(b) and tip2_kopya.remove(b)
+    if len(tip2_ornek)==20:
+        print(tip2_ornek)
+        break
+
+#ortalama ve standart sapma hesaplama
+toplam_tip2=0
+for x in tip2_ornek:
+    toplam_tip2+=x
+ortalama_tip2=toplam_tip2/len(tip2_ornek)
+print("Tip 2 borunun 20 elemanlı örnekleminin ortalamısı:",ortalama_tip2)
+standart_sapma_tip2=0
+for c in tip2_ornek:
+    standart_sapma_tip2+=(c-ortalama_tip2)**2
+standart_sapma_tip2=(standart_sapma_tip2/(len(tip2_ornek)-1))**0.5
+print("Tip 2 borunun 20 elemanlı örnekleminin standart sapması:",standart_sapma_tip2)
+
+if ortalama_tip1 >= ortalama_tip2:
+    print("**Tip 1 borunun ısıya olan dayanıklılığı daha fazladır")
+else:
+    print("**Tip 2 borunun ısıya olan dayanıklılığı daha fazladır")
+
+if standart_sapma_tip1 >= standart_sapma_tip2:
+    print("**Tip 1 borunun ısıya olan dayanıklılığı Tip 2 boruya göre daha değişkendir yani yayılımı fazladır")
+else:
+    print("**Tip 2 borunun ısıya olan dayanıklılığı Tip 1 boruya göre daha değişkendir yani yayılımı fazladır")
